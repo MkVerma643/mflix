@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from 'react'
+import Home from "./Home"
+import videoDetails from "./videoDetails"
+import { BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
+import { connect } from "react-redux"
 
-function App() {
+
+function App(props) {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+        <div>
+      <Switch>
+      <Route path ="/" exact component={Home} ></Route>
+      <Route path ="/videoplay/:videoid" exact component={videoDetails} ></Route>
+
+      <Route path ="/*" >
+        <Redirect to="/"></Redirect>
+      </Route>
+      </Switch>
+        </div>
+      </Router>
     </div>
   );
 }
 
-export default App;
+export default connect (function(state,props){
+return {
+  user:state?.user
+}
+})(App);
