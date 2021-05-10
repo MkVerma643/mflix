@@ -20,8 +20,8 @@ function Home(){
     return (
            
             <div className="row">
-            {videos?.length>0 && videos.map((each,index)=>{
-                return (<Video videodata={each} index={index} />)
+            {videos?.length>0 && videos.map((each,key)=>{
+                return (<Video videodata={each} key={key} />)
             })}
             </div>
     )

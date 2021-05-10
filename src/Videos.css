@@ -1,0 +1,14 @@
+.videos{
+    float: left;
+};
+
+.video{
+    float: left;
+};
+
+
+.container {
+    background: black;
+    width: 90%;
+    
+  };
