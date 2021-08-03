@@ -1,22 +1,28 @@
-import {useParams} from "react-router-dom"
-import {useEffect, useState} from 'react';
-import classes from "./Videos.css"
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import classes from "./Videos.css";
 
-function VideoDetails(props){
+function VideoDetails(props) {
+  let [videodetails, setvideodetails] = useState({});
+  let params = useParams();
 
-    let [videodetails, setvideodetails] = useState({})
-    let params = useParams()
-  
-    return (
-      <div className="container">
+  return (
+    <div className="container">
       <video controls autoPlay crossOrigin="anonymous">
-      <source src={`http://localhost:5000/api/playvideo?filename=${params.videoid}`} type="video/mp4"></source>
-      <track label="English" kind="captions" srcLang="en" src={videodetails} default></track>
+        <source
+          src={`http://localhost:5000/api/playvideo?filename=${params.videoid}`}
+          type="video/mp4"
+        ></source>
+        <track
+          label="English"
+          kind="captions"
+          srcLang="en"
+          src={videodetails}
+          default
+        ></track>
       </video>
-      
-      </div>
-
-    )
+    </div>
+  );
 }
 
-export default VideoDetails
+export default VideoDetails;
