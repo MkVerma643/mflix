@@ -8,7 +8,7 @@ function VideoDetails(props) {
 
   return (
     <div className="container">
-      <video controls autoPlay crossOrigin="anonymous">
+      <video controls autoPlay crossOrigin="anonymous" style={{ width:'80%'}}>
         <source
           src={`http://localhost:5000/api/playvideo?filename=${params.videoid}`}
           type="video/mp4"
